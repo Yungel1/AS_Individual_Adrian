@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  miservicio_mysql:
+   build: ./mysql
+   ports:
+    - 3306:3306
+   restart: always
+   
+  miservicio_apache:
+   build: ./apache
+   ports:
+    - 80:80
+   links: 
+    - miservicio_mysql
